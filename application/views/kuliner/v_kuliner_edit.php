@@ -30,7 +30,7 @@
                             <input type="hidden" name="id" class="form-control" value="<?= $s->id; ?>">
 
                             <tr>
-                                <td>Kabupaten/Kota : </td>
+                                <td width="150px">Kabupaten/Kota : </td>
                                 <td><select class="form-control" name="nama_kabupaten_kota" id="nama_kabupaten_kota" required="">
                                         <option value="">Pilih</option>
                                         <?php foreach ($kabupaten_kota as $row) {

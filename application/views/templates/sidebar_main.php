@@ -47,18 +47,38 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li <?php if ($page == "Provinsi") {
+                    <li class="<?php if ($page == "Provinsi") {
                             echo "active";
-                        } ?>><a href="<?php echo base_url() . 'provinsi'; ?>"><i class="fa fa-circle-o"></i>Provinsi</a></li>
-                    <li <?php if ($page == "Kabupaten") {
+                        } ?>">
+                        <a href="<?php echo base_url() . 'provinsi'; ?>">
+                            <i class="fa fa-circle-o"></i>
+                            Provinsi
+                        </a>
+                    </li>
+                    <li class="<?php if ($page == "Kabupaten") {
                             echo "active";
-                        } ?>><a href="<?php echo base_url() . 'kabupaten'; ?>"><i class="fa fa-circle-o"></i>Kabupaten</a></li>
-                    <li <?php if ($page == "Kota") {
+                        } ?>">
+                        <a href="<?php echo base_url() . 'kabupaten'; ?>">
+                            <i class="fa fa-circle-o"></i>
+                            Kabupaten
+                        </a>
+                    </li>
+                    <li class="<?php if ($page == "Kota") {
                             echo "active";
-                        } ?>><a href="<?php echo base_url() . 'kota'; ?>"><i class="fa fa-circle-o"></i>Kota</a></li>
-                    <li <?php if ($page == "User") {
+                        } ?>">
+                        <a href="<?php echo base_url() . 'kota'; ?>">
+                            <i class="fa fa-circle-o"></i>
+                            Kota
+                        </a>
+                    </li>
+                    <li class="<?php if ($page == "User") {
                             echo "active";
-                        } ?>><a href="<?php echo base_url() . 'user'; ?>"><i class="fa fa-circle-o"></i>Pengguna</a></li>
+                        } ?>">
+                        <a href="<?php echo base_url() . 'user'; ?>">
+                            <i class="fa fa-circle-o"></i>
+                            Pengguna
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>
