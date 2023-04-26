@@ -1,6 +1,6 @@
 <?php
 
-class Kabupaten_Kota extends CI_Controller
+class Kabupaten extends CI_Controller
 {
 
 	function __construct()
@@ -17,21 +17,17 @@ class Kabupaten_Kota extends CI_Controller
 
 	function index()
 	{
-		$idkabupaten = 1;
-		$where = array('jenis_kabupaten_kota' => $idkabupaten);
-		$data['kabupaten'] = $this->m_kabupaten_kota->get_data($where, 'tb_kabupaten_kota')->result();
-
-		$idkota = 2;
-		$where = array('jenis_kabupaten_kota' => $idkota);
-		$data['kota'] = $this->m_kabupaten_kota->get_data($where, 'tb_kabupaten_kota')->result();
-
-		$data['title'] = 'SIPIa List Kabupaten Kota';
-
+		$id = 1;
+		$where = array('jenis_kabupaten_kota' => $id);
+		$data['kabupaten_kota'] = $this->m_kabupaten_kota->get_data($where, 'tb_kabupaten_kota')->result();
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Kabupaten | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Kabupaten";
+		$data["pageTre"] = "Master";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_kabupaten_kota', $data);
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
+		$this->load->view('kabupaten/v_kabupaten', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -41,12 +37,14 @@ class Kabupaten_Kota extends CI_Controller
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
 		$data['kabupaten_kota_jenis'] = $this->m_kabupaten_kota_jenis->tampil_data()->result();
 		$data['kabupaten_kota'] = $this->m_kabupaten_kota->tampil_data()->result();
-		$data['title'] = 'SIPIa List Kabupaten';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Input Kabupaten | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Kabupaten";
+		$data["pageTre"] = "Master";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_kabupaten_kota_input', $data);
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
+		$this->load->view('kabupaten/v_kabupaten_input', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -55,7 +53,7 @@ class Kabupaten_Kota extends CI_Controller
 	{
 		$this->load->library('upload');
 		$file_name = "zfile_" . time(); //nama file saya beri nama langsung dan diikuti fungsi time
-		$config['upload_path'] = './assets/images/kabupaten_kota/'; //path folder
+		$config['upload_path'] = './assets/images/kabupaten/'; //path folder
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
 		$config['max_size'] = '4048'; //maksimum besar file 2M
 		$config['max_width']  = '6238'; //lebar maksimum 1288 px
@@ -80,10 +78,10 @@ class Kabupaten_Kota extends CI_Controller
 				);
 				$this->m_kabupaten_kota->input_kabupaten_kota($data, 'tb_kabupaten_kota');
 				$this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-success\" id=\"alert\">Upload gambar berhasil !!</div></div>");
-				redirect('kabupaten_kota'); //jika berhasil maka akan ditampilkan view vupload
+				redirect('kabupaten'); //jika berhasil maka akan ditampilkan view vupload
 			} else {
 				$this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-danger\" id=\"alert\">Gagal upload gambar !!</div></div>");
-				redirect('kabupaten_kota/input'); //jika gagal maka akan ditampilkan form upload
+				redirect('kabupaten/input'); //jika gagal maka akan ditampilkan form upload
 			}
 		}
 	}
@@ -94,12 +92,14 @@ class Kabupaten_Kota extends CI_Controller
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
 		$data['kabupaten_kota_jenis'] = $this->m_kabupaten_kota_jenis->tampil_data()->result();
 		$data['kabupaten_kota'] = $this->m_kabupaten_kota->edit_data($where, 'tb_kabupaten_kota')->result();
-		$data['title'] = 'SIPIa | Edit Kabupaten/Kota';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Edit Kabupaten | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Kabupaten";
+		$data["pageTre"] = "Master";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_kabupaten_kota_edit', $data);
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
+		$this->load->view('kabupaten/v_kabupaten_edit', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -141,13 +141,13 @@ class Kabupaten_Kota extends CI_Controller
 				$this->m_kabupaten_kota->get_update($data, $where); //akses model untuk menyimpan ke database
 
 				$this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-success\" id=\"alert\">Edit dan Upload gambar berhasil !!</div></div>"); //pesan yang muncul jika berhasil diupload pada session flashdata
-				redirect('kabupaten_kota'); //jika berhasil maka akan ditampilkan view vupload
+				redirect('kabupaten'); //jika berhasil maka akan ditampilkan view vupload
 
 			} else {  /* jika upload gambar gagal maka akan menjalankan skrip ini */
 				$er_upload = $this->upload->display_errors(); /* untuk melihat error uploadnya apa */
 				//pesan yang muncul jika terdapat error dimasukkan pada session flashdata
 				$this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-danger\" id=\"alert\">Gagal edit dan upload gambar !! " . $er_upload . "</div></div>");
-				redirect('kabupaten_kota/edit'); //jika gagal maka akan ditampilkan form upload
+				redirect('kabupaten/edit'); //jika gagal maka akan ditampilkan form upload
 			}
 		} else { /* jika file foto tidak ada maka query yg dijalankan adalah skrip ini  */
 			$data = array(
@@ -160,44 +160,14 @@ class Kabupaten_Kota extends CI_Controller
 			$this->m_kabupaten_kota->get_update($data, $where); //akses model untuk menyimpan ke database
 
 			$this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-danger\" id=\"alert\">Berhasil edit, Gambar tidak ada diupload !!</div></div>");
-			redirect('kabupaten_kota'); /* jika berhasil maka akan kembali ke home upload */
+			redirect('kabupaten'); /* jika berhasil maka akan kembali ke home upload */
 		}
-	}
-
-	function kabupaten()
-	{
-		$id = 1;
-		$where = array('jenis_kabupaten_kota' => $id);
-		$data['kabupaten_kota'] = $this->m_kabupaten_kota->get_data($where, 'tb_kabupaten_kota')->result();
-		$data['title'] = 'SIPIa List Kabupaten';
-		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		// $this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_kabupaten', $data);
-		$this->load->view('templates/footer_copyright');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/footer_admin');
-	}
-
-	function kota()
-	{
-		$id = 2;
-		$where = array('jenis_kabupaten_kota' => $id);
-		$data['kabupaten_kota'] = $this->m_kabupaten_kota->get_data($where, 'tb_kabupaten_kota')->result();
-		$data['title'] = 'SIPIa List kota';
-		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		// $this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_kota', $data);
-		$this->load->view('templates/footer_copyright');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/footer_admin');
 	}
 
 	function hapus($jenis_kabupaten_kota)
 	{
 		$where = array('id' => $jenis_kabupaten_kota);
 		$this->m_kabupaten_kota->hapus_data($where, 'tb_kabupaten_kota');
-		redirect('kabupaten_kota');
+		redirect('kabupaten');
 	}
 }
