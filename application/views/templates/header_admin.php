@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title><?= $title; ?></title>
-    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/images/icon/'); ?>Icon2.png">
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/images/icon/'); ?>Icon.png">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="<?= base_url('assets/admin/'); ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
 
