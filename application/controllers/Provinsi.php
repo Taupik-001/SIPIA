@@ -23,7 +23,7 @@ class Provinsi extends CI_Controller
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main', $data);
 		$this->load->view('templates/sidebar_main', $data);
-		$this->load->view('backend/v_provinsi', $data);
+		$this->load->view('provinsi/v_provinsi', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -38,7 +38,7 @@ class Provinsi extends CI_Controller
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main', $data);
 		$this->load->view('templates/sidebar_main', $data);
-		$this->load->view('backend/v_provinsi_input', $data);
+		$this->load->view('provinsi/v_provinsi_input', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -87,7 +87,7 @@ class Provinsi extends CI_Controller
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main', $data);
 		$this->load->view('templates/sidebar_main', $data);
-		$this->load->view('backend/v_provinsi_edit', $data);
+		$this->load->view('provinsi/v_provinsi_edit', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -151,6 +151,6 @@ class Provinsi extends CI_Controller
 	{
 		$where = array('id' => $id_provinsi);
 		$this->m_provinsi->hapus_data($where, 'tb_provinsi');
-		redirect('provinsi/index');
+		redirect('provinsi');
 	}
 }
