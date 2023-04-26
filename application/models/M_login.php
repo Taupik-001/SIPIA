@@ -17,4 +17,10 @@ class M_login extends CI_Model
 	{
 		$this->db->insert($table, $data);
 	}
+
+    public function get_admin_by_username($username)
+    {
+        $query = $this->db->get_where('tb_admin', array('username' => $username));
+        return $query->row_array();
+    }
 }

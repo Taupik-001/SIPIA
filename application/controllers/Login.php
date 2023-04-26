@@ -12,44 +12,68 @@ class Login extends CI_Controller
 
 	function index()
 	{
-		$data['title'] = 'Halaman Login';
-		$this->load->view('backend/login');
+		$data['title'] = 'Login Administrator | SIPIa';
+		$this->load->view('backend/login', $data);
 	}
 
-	function aksi_login()
+	function login()
 	{
+		// Get the username and password from the login form
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		$where = array(
-			'username' => $username,
-			'password' => $password
-		);
-		$cek = $this->m_login->cek_login("tb_admin", $where)->num_rows();
-		if ($cek > 0) {
 
-			$data_session = array(
-				'nama' => $username,
-				'status' => "login"
-			);
+		// Get the user's data from the database
+		$user = $this->m_login->get_admin_by_username($username);
 
-			$this->session->set_userdata($data_session);
+		// Check if the user exists in the database
+		if ($user) {
+			// Verify the password against the stored hash and salt
+			if (password_verify($password . $user['salt'], $user['password'])) {
+				// Password is correct, so set up the user's session data
+				$data_session = array(
+					'nama' => $username,
+					'status' => "login"
+				);
+				$this->session->set_userdata($data_session);
 
-			redirect(base_url("dashboard"));
+				// Redirect to the dashboard
+				redirect('dashboard');
+			} else {
+				// Password is incorrect, so show an error message
+				echo "Password salah !";
+			}
 		} else {
-			echo "Username dan password salah !";
+			// User doesn't exist, so show an error message
+			echo "Username tidak ditemukan !";
+			redirect('home');
 		}
 	}
 
-	function input_login()
+
+
+	function register()
 	{
+		// Get the username and password from the registration form
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+
+		// Generate a salt for the bcrypt hash
+		$salt = password_hash($username, PASSWORD_DEFAULT);
+
+		// Hash the password using bcrypt with the generated salt
+		$hashed_password = password_hash($password . $salt, PASSWORD_BCRYPT);
+
+		// Set up the data array with the username, hashed password, and salt
 		$data = array(
 			'username' => $username,
-			'password' => md5($password)
+			'password' => $hashed_password,
+			'salt' => $salt
 		);
 
+		// Insert the user's data into the database
 		$this->m_login->input_admin($data, 'tb_admin');
+
+		// Redirect to the login page
 		redirect('login');
 	}
 }
