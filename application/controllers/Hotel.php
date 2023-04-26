@@ -18,12 +18,14 @@ class Hotel extends CI_Controller
 	function index()
 	{
 		$data['hotel'] = $this->m_hotel->tampil_data()->result();
-		$data['title'] = 'Halaman hotel';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Hotel | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Hotel";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		// $this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_hotel', $data);
+		$this->load->view('templates/sidebar_main');
+		$this->load->view('hotel/v_hotel', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -32,12 +34,14 @@ class Hotel extends CI_Controller
 	{
 		$data['kabupaten_kota'] = $this->m_kabupaten_kota->tampil_data()->result();
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
-		$data['title'] = 'Halaman hotel';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Input Hotel | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Hotel";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
 		$this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_hotel_input', $data);
+		$this->load->view('hotel/v_hotel_input', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -136,12 +140,14 @@ class Hotel extends CI_Controller
 		$data['hotel'] = $this->m_hotel->edit_data($where, 'tb_hotel')->result();
 		$data['kabupaten_kota'] = $this->m_kabupaten_kota->tampil_data()->result();
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
-		$data['title'] = 'Halaman Edit hotel';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Edit Hotel | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Hotel";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
 		$this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_hotel_edit', $data);
+		$this->load->view('hotel/v_hotel_edit', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -280,14 +286,6 @@ class Hotel extends CI_Controller
 	{
 		$where = array('id' => $id_hotel);
 		$this->m_hotel->hapus_data($where, 'tb_hotel');
-		redirect('hotel/index');
-	}
-
-	function getDetail($id)
-	{
-		$where = array('id' => $id);
-		$q = $this->m_hotel->get_data($where, 'tb_hotel');
-		$data = json_encode($q->result_array());
-		echo "{\"detail_hotel\":" . $data . "}";
+		redirect('hotel');
 	}
 }
