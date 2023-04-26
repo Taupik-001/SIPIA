@@ -6,8 +6,9 @@
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li><a href="<?= base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('wisata'); ?>">Wisata</a></li>
+            <li class="active"><a href="#">Edit</a></li>
         </ol>
     </section>
 
@@ -147,7 +148,7 @@
                                 <td>Video Url : </td>
                                 <td><input type="text" class="form-control" name="video" required="required" value="<?= $s->video ?>"></td>
                             </tr>
-                            
+
                             <tr>
                                 <td>Keterangan : </td>
                                 <td><textarea type="text" class="form-control" name="keterangan" required="required" value=""><?= $s->keterangan ?></textarea>
@@ -157,7 +158,7 @@
                                 <td>Judul Artikel : </td>
                                 <td><input type="text" class="form-control" name="judul_utama" required="required" value="<?= $s->judul_utama ?>"></td>
                             </tr>
-                            
+
                             <tr>
                                 <td>Url : </td>
                                 <td><input type="text" class="form-control" name="url" required="required" value="<?= $s->url ?>"></td>
