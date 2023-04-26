@@ -24,7 +24,7 @@ class Hotel extends CI_Controller
 		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_main');
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('hotel/v_hotel', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
@@ -40,7 +40,7 @@ class Hotel extends CI_Controller
 		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_main');
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('hotel/v_hotel_input', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
@@ -146,7 +146,7 @@ class Hotel extends CI_Controller
 		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_main');
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('hotel/v_hotel_edit', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
