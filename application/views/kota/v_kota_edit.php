@@ -6,8 +6,9 @@
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+        <li><a href="<?= base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('kota'); ?>">Kota</a></li>
+            <li class="active"><a href="#">Edit</a></li>
         </ol>
     </section>
 
@@ -24,12 +25,12 @@
                 <?php
                 foreach ($kabupaten_kota as $s) { ?>
 
-                    <form action="<?= base_url('kabupaten_kota/edit_action'); ?> " method="post" id="form-satuan" enctype="multipart/form-data">
+                    <form action="<?= base_url('kota/edit_action'); ?> " method="post" id="form-satuan" enctype="multipart/form-data">
                         <table class="table table-striped ">
                             <input type="hidden" name="id" class="form-control" value="<?= $s->id; ?>">
 
                             <tr>
-                                <td>Provinsi</td>
+                                <td width="150px">Provinsi : </td>
                                 <td><select class="form-control" name="nama_provinsi" id="nama_provinsi" required="">
                                         <option value="">Pilih</option>
                                         <?php foreach ($provinsi as $row) {
@@ -47,7 +48,7 @@
                             </tr>
 
                             <tr>
-                                <td>Kabupaten/Kota</td>
+                                <td>Kabupaten/Kota : </td>
                                 <td><select class="form-control" name="jenis_kabupaten_kota" id="jenis_kabupaten_kota" required="">
                                         <option value="">Pilih</option>
                                         <?php foreach ($kabupaten_kota_jenis as $row) {
@@ -65,25 +66,25 @@
                             </tr>
 
                             <tr>
-                                <td>Nama Kabupaten/Kota</td>
+                                <td>Nama Kota : </td>
                                 <td><input type="text" class="form-control" name="nama_kabupaten_kota" required="" value="<?= $s->nama_kabupaten_kota ?>"></td>
                             </tr>
 
                             <tr>
                             <tr>
-                                <td>Foto</td>
+                                <td>Foto : </td>
                                 <td><input type="file" class="form-control" name="filefoto"></td>
                                 <input type="hidden" name="filelama" class="form-control" value="<?= $s->foto; ?>">
                             <tr>
                                 <td></td>
-                                <td><img src="<?= base_url('assets/images/kabupaten_kota/'); ?><?= $s->foto ?>" alt="" width="200"></td>
+                                <td><img src="<?= base_url('assets/images/kota/'); ?><?= $s->foto ?>" alt="" width="200"></td>
                             </tr>
                             </tr>
 
                             <tr>
                                 <td></td>
                                 <td><input type="submit" class="btn btn-success" value="Edit">
-                                    <button class="btn btn-danger" value=""><a href="<?= base_url('kabupaten_kota'); ?>" style="color:white">Batal</a></button>
+                                    <button class="btn btn-danger" value=""><a href="<?= base_url('kota'); ?>" style="color:white">Batal</a></button>
                                 </td>
 
                             </tr>

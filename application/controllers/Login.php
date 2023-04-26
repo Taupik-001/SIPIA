@@ -13,7 +13,7 @@ class Login extends CI_Controller
 	function index()
 	{
 		$data['title'] = 'Login Administrator | SIPIa - Sistem Informasi Pariwisata Indonesia';
-		$this->load->view('backend/login', $data);
+		$this->load->view('login/v_login', $data);
 	}
 
 	function login()

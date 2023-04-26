@@ -49,7 +49,7 @@
                             </tr>
 
                             <tr>
-                                <td>Kabupaten : </td>
+                                <td>Kabupaten/Kota : </td>
                                 <td><select class="form-control" name="jenis_kabupaten_kota" id="jenis_kabupaten_kota" required="">
                                         <option value="">Pilih</option>
                                         <?php foreach ($kabupaten_kota_jenis as $row) {
