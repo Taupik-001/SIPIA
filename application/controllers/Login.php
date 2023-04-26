@@ -12,7 +12,7 @@ class Login extends CI_Controller
 
 	function index()
 	{
-		$data['title'] = 'Login Administrator | SIPIa';
+		$data['title'] = 'Login Administrator | SIPIa - Sistem Informasi Pariwisata Indonesia';
 		$this->load->view('backend/login', $data);
 	}
 
@@ -31,7 +31,7 @@ class Login extends CI_Controller
 			if (password_verify($password . $user['salt'], $user['password'])) {
 				// Password is correct, so set up the user's session data
 				$data_session = array(
-					'nama' => $username,
+					'nama' 	=>  $user['name'],
 					'status' => "login"
 				);
 				$this->session->set_userdata($data_session);
