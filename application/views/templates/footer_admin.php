@@ -17,6 +17,18 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/admin/'); ?>dist/js/demo.js"></script>
 <!-- page script -->
+<script>
+    $(function() {
+        $('#myTable').DataTable({
+            'paging': true,
+            'lengthChange': true,
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
+        })
+    })
+</script>
 </body>
 
 </html>
