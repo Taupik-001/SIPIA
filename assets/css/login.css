@@ -1,0 +1,56 @@
+body {
+    background: linear-gradient(to bottom right, #ffee00, #ff8800);
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
+}
+.login-area {
+    border-radius: 3%;
+}
+
+.remember-me-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: white;
+    border-radius: 3px;
+    border: 2px solid #00A5FF;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.remember-me-checkbox:checked {
+    background-color: #00A5FF;
+    background-image: none;
+    border: white solid 1px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.remember-me-checkbox:focus {
+    outline: none;
+}
+
+.sign-in {
+    /* background-color: #48f748; */
+    background-color: #ff8800;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 110%;
+}
+
+.sign-in:hover {
+    background-color: #ff4800;
+}
+
+.forgot-password {
+    text-align: center;
+}
