@@ -108,7 +108,7 @@ class Kabupaten extends CI_Controller
 	{
 		$this->load->library('upload'); // library dapat di load di fungsi , di autoload atau di construc nya tinggal pilih salah satunya
 		$nmfile = "zfile_" . time(); //nama file saya beri nama langsung dan diikuti fungsi time
-		$path   = './assets/images/kabupaten_kota/'; //path folder
+		$path   = './assets/images/kabupaten/'; //path folder
 		$config['upload_path'] = $path; //variabel path untuk config upload
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
 		$config['max_size'] = '4048'; //maksimum besar file 2M
@@ -129,6 +129,7 @@ class Kabupaten extends CI_Controller
 			if ($this->upload->do_upload('filefoto')) {
 				$gbr = $this->upload->data();
 				$data = array(
+					'id' => $id,
 					'jenis_kabupaten_kota' => $jenis_kabupaten_kota,
 					'nama_kabupaten_kota' => $nama_kabupaten_kota,
 					'nama_provinsi' => $nama_provinsi,
@@ -147,7 +148,7 @@ class Kabupaten extends CI_Controller
 				$er_upload = $this->upload->display_errors(); /* untuk melihat error uploadnya apa */
 				//pesan yang muncul jika terdapat error dimasukkan pada session flashdata
 				$this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-danger\" id=\"alert\">Gagal edit dan upload gambar !! " . $er_upload . "</div></div>");
-				redirect('kabupaten/edit'); //jika gagal maka akan ditampilkan form upload
+				redirect('kabupaten/edit'.$id); //jika gagal maka akan ditampilkan form upload
 			}
 		} else { /* jika file foto tidak ada maka query yg dijalankan adalah skrip ini  */
 			$data = array(

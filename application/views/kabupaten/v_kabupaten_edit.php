@@ -26,6 +26,7 @@
 
                     <form action="<?= base_url('kabupaten/edit_action'); ?> " method="post" id="form-satuan" enctype="multipart/form-data">
                         <table class="table table-striped ">
+                            
                             <input type="hidden" name="id" class="form-control" value="<?= $s->id; ?>">
 
                             <tr>
