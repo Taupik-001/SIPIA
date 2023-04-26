@@ -24,8 +24,8 @@ class Wisata extends CI_Controller
 		$data["page"] = "Wisata";
 		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_main');
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('wisata/v_wisata', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
@@ -42,7 +42,7 @@ class Wisata extends CI_Controller
 		$data["page"] = "Wisata";
 		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
+		$this->load->view('templates/header_main', $data);
 		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('wisata/v_wisata_input', $data);
 		$this->load->view('templates/footer_copyright');
@@ -155,7 +155,7 @@ class Wisata extends CI_Controller
 		$data["page"] = "Wisata";
 		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
+		$this->load->view('templates/header_main', $data);
 		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('wisata/v_wisata_edit', $data);
 		$this->load->view('templates/footer_copyright');
