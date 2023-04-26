@@ -16,24 +16,28 @@ class Provinsi extends CI_Controller
 	function index()
 	{
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
-		$data['title'] = 'SIPIa Provinsi';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Provinsi | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Provinsi";
+		$data["pageTre"] = "Master";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		// $this->load->view('templates/sidebar_main');
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('backend/v_provinsi', $data);
 		$this->load->view('templates/footer_copyright');
-		$this->load->view('templates/sidebar_control');
 		$this->load->view('templates/footer_admin');
 	}
 
 	function input()
 	{
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
-		$data['title'] = 'SIPIa Input Provinsi';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Input Provinsi | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Provinsi";
+		$data["pageTre"] = "Master";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/sidebar_main');
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('backend/v_provinsi_input', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
@@ -76,11 +80,13 @@ class Provinsi extends CI_Controller
 	{
 		$where = array('id' => $id);
 		$data['provinsi'] = $this->m_provinsi->edit_data($where, 'tb_provinsi')->result();
-		$data['title'] = 'SIPIa Edit Provinsi';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Edit Provinsi | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Provinsi";
+		$data["pageTre"] = "Master";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/sidebar_main');
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('backend/v_provinsi_edit', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');

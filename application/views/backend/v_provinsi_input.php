@@ -6,8 +6,9 @@
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+        <li><a href="<?= base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('provinsi'); ?>">Provinsi</a></li>
+            <li class="active"><a href="#">Input</a></li>
         </ol>
     </section>
 
@@ -22,14 +23,14 @@
                 <section class="col-lg-6 connectedSortable">
                     <table class="table col-md-6">
                         <tr>
-                            <td>Nama Provinsi</td>
+                            <td>Nama Provinsi : </td>
                             <td>
                                 <input type="text" class="form-control" name="nama_provinsi" required="" value="">
                             </td>
                         </tr>
 
                         <tr>
-                            <td>Foto</td>
+                            <td>Foto : </td>
                             <td>
                                 <input type="file" class="form-control" name="filefoto" required="" value="">
                             </td>

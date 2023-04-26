@@ -6,8 +6,9 @@
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+        <li><a href="<?= base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?= base_url('provinsi'); ?>">Provinsi</a></li>
+            <li class="active"><a href="#">Edit</a></li>
         </ol>
     </section>
 
@@ -29,7 +30,7 @@
                             <input type="hidden" name="id" class="form-control" value="<?php echo $s->id; ?>">
 
                             <tr>
-                                <td>Nama Provinsi</td>
+                                <td width="150px">Nama Provinsi</td>
                                 <td><input type="text" class="form-control" name="nama_provinsi" required="required" value="<?php echo $s->nama_provinsi ?>"></td>
                             </tr>
 
