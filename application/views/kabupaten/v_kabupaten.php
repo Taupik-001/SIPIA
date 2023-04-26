@@ -9,7 +9,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li class="active"><a href="<?= base_url('kabupaten'); ?>">Kabupaten</a></li>
+            <li class="active"><a href="#">Kabupaten</a></li>
         </ol>
     </section>
     <!-- End Content Header. Contains Page header -->
