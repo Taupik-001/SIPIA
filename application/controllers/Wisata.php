@@ -19,12 +19,14 @@ class Wisata extends CI_Controller
 	function index()
 	{
 		$data['wisata'] = $this->m_wisata->tampil_data()->result();
-		$data['title'] = 'Halaman wisata';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Wisata | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Wisata";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		// $this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_wisata', $data);
+		$this->load->view('templates/sidebar_main');
+		$this->load->view('wisata/v_wisata', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -35,12 +37,14 @@ class Wisata extends CI_Controller
 		$data['kabupaten_kota'] = $this->m_kabupaten_kota->tampil_data()->result();
 		$data['wisata_jenis'] = $this->m_wisata_jenis->tampil_data()->result();
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
-		$data['title'] = 'Halaman Wisata';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Input Wisata | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Wisata";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
 		$this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_wisata_input', $data);
+		$this->load->view('wisata/v_wisata_input', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -146,12 +150,14 @@ class Wisata extends CI_Controller
 		$data['wisata_jenis'] = $this->m_wisata_jenis->tampil_data()->result();
 		$data['kabupaten_kota'] = $this->m_kabupaten_kota->tampil_data()->result();
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
-		$data['title'] = 'Halaman Edit wisata';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Edit Wisata | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Wisata";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
 		$this->load->view('templates/sidebar_main');
-		$this->load->view('backend/v_wisata_edit', $data);
+		$this->load->view('wisata/v_wisata_edit', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -258,7 +264,6 @@ class Wisata extends CI_Controller
 				redirect('wisata/edit'); //jika gagal maka akan ditampilkan form upload
 			}
 		} else { /* jika file foto tidak ada maka query yg dijalankan adalah skrip ini  */
-
 			$data = array(
 				'nama_kabupaten_kota' => $this->input->post('nama_kabupaten_kota'),
 				'nama_provinsi' => $this->input->post('nama_provinsi'),
@@ -296,14 +301,6 @@ class Wisata extends CI_Controller
 	{
 		$where = array('id' => $id_wisata);
 		$this->m_wisata->hapus_data($where, 'tb_wisata');
-		redirect('wisata/index');
-	}
-
-	function getDetail($id)
-	{
-		$where = array('id' => $id);
-		$q = $this->m_wisata->get_data($where, 'tb_nama_wisata');
-		$data = json_encode($q->result_array());
-		echo "{\"detail_wisata\":" . $data . "}";
+		redirect('wisata');
 	}
 }
