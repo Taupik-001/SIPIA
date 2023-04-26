@@ -25,7 +25,7 @@ class Kuliner extends CI_Controller
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main', $data);
 		$this->load->view('templates/sidebar_main', $data);
-		$this->load->view('backend/v_kuliner', $data);
+		$this->load->view('kuliner/v_kuliner', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -41,7 +41,7 @@ class Kuliner extends CI_Controller
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main', $data);
 		$this->load->view('templates/sidebar_main', $data);
-		$this->load->view('backend/v_kuliner_input', $data);
+		$this->load->view('kuliner/v_kuliner_input', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
@@ -148,7 +148,7 @@ class Kuliner extends CI_Controller
 		$this->load->view('templates/header_admin', $data);
 		$this->load->view('templates/header_main', $data);
 		$this->load->view('templates/sidebar_main', $data);
-		$this->load->view('backend/v_kuliner_edit', $data);
+		$this->load->view('kuliner/v_kuliner_edit', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
 	}
