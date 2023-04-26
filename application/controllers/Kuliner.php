@@ -18,11 +18,13 @@ class Kuliner extends CI_Controller
 	function index()
 	{
 		$data['kuliner'] = $this->m_kuliner->tampil_data()->result();
-		$data['title'] = 'Halaman kuliner';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Kuliner | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Kuliner";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		// $this->load->view('templates/sidebar_main');
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('backend/v_kuliner', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
@@ -32,11 +34,13 @@ class Kuliner extends CI_Controller
 	{
 		$data['kabupaten_kota'] = $this->m_kabupaten_kota->tampil_data()->result();
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
-		$data['title'] = 'Halaman kuliner';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Input Kuliner | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Kuliner";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/sidebar_main');
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('backend/v_kuliner_input', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
@@ -137,11 +141,13 @@ class Kuliner extends CI_Controller
 		$data['kuliner'] = $this->m_kuliner->edit_data($where, 'tb_kuliner')->result();
 		$data['kabupaten_kota'] = $this->m_kabupaten_kota->tampil_data()->result();
 		$data['provinsi'] = $this->m_provinsi->tampil_data()->result();
-		$data['title'] = 'Halaman Edit kuliner';
+		$data['nama'] = $this->session->userdata('nama');
+		$data['title'] = 'Edit Kuliner | SIPIa - Sistem Informasi Pariwisata Indonesia';
+		$data["page"] = "Kuliner";
+		$data["pageTre"] = "none";
 		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_control');
-		$this->load->view('templates/sidebar_main');
+		$this->load->view('templates/header_main', $data);
+		$this->load->view('templates/sidebar_main', $data);
 		$this->load->view('backend/v_kuliner_edit', $data);
 		$this->load->view('templates/footer_copyright');
 		$this->load->view('templates/footer_admin');
