@@ -1,11 +1,7 @@
 <main class="container py-5">
-
-
-
     <?php
     foreach ($wisata as $s) {
     ?>
-
         <div class="text-white rounded bg-dark">
             <div class="col-md-12 px-0">
 
@@ -32,10 +28,24 @@
                         </a>
                         by
                         <a href="#">
-                            Editor
+                            Taupik
                         </a>
                     </p>
+                    <style>
+                        p {
+                            font-size: 16px;
+                            /* ukuran font */
+                            line-height: 1.5;
+                            /* jarak antar baris */
+                            text-align: justify;
+                            /* rata kanan kiri */
+                            text-indent: 1em;
+                            /* indentasi pada awal paragraf */
+                        }
+                    </style>
 
+
+                    <!-- <div class="keterangan"><?php echo $s->keterangan; ?></div> -->
                     <p>
                         <b>SIPIa.com </b> - <?= $s->keterangan; ?>
                     </p>
@@ -47,8 +57,10 @@
         <div class="col-md-4">
             <div class="position-sticky" style="top: 2rem;">
                 <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">About</h4>
-                    <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+                    <h4 class="fst-italic">Tentang</h4>
+                    <p class="mb-0">
+                        Wisata adalah kegiatan yang dilakukan oleh seseorang atau kelompok untuk berkunjung ke tempat-tempat yang menarik, baik itu alam maupun buatan manusia. Wisata dapat dilakukan untuk tujuan rekreasi, liburan, atau bahkan sebagai kegiatan bisnis. Wisata juga dapat mencakup kegiatan seperti mengunjungi objek wisata, mencoba makanan atau minuman khas daerah tertentu, berpartisipasi dalam acara budaya atau festival, dan melakukan kegiatan olahraga atau petualangan. Wisata dapat menjadi sumber penghasilan bagi suatu daerah atau negara, serta memberikan pengalaman dan pengetahuan baru bagi para wisatawan.
+                    </p>
                 </div>
 
                 <div class="p-4">
