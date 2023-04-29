@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 
 use chriskacerguis\RestServer\RestController;
 
-class Kuliner extends RestController
+class Kabupatenkotaprovinsi extends RestController
 {
 
     function __construct()
@@ -16,9 +16,9 @@ class Kuliner extends RestController
 
     public function index_get($id = 0)
     {
-        $check_data = $this->db->get_where('tb_kuliner', ['id' => $id])->row_array();
+        $check_data = $this->db->get_where('tb_kabupaten_kota', ['nama_provinsi' => $id])->result();
 
-        // Jika Mengisikan id Kuliner
+        // Jika Mengisikan id Kabupaten/Kota
         if ($id) {
             if ($check_data) {
                 $this->response($check_data, RestController::HTTP_OK);
@@ -29,8 +29,7 @@ class Kuliner extends RestController
                 ], 404);
             }
         } else {
-            $data = $this->db->get('tb_hotel')->result();
-
+            $data = $this->db->get('tb_kabupaten_kota')->result();
             $this->response($data, RestController::HTTP_OK);
         }
     }

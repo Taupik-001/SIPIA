@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 
 use chriskacerguis\RestServer\RestController;
 
-class WisataId extends RestController
+class Wisatakk extends RestController
 {
 
     function __construct()
@@ -18,7 +18,7 @@ class WisataId extends RestController
     {
         $check_data = $this->db->get_where('tb_wisata', ['nama_kabupaten_kota' => $id])->result();
 
-        // Jika Mangisikan id Hotel
+        // Jika Mengisikan id Kabupaten/Kota Wisata
         if ($id) {
             if ($check_data) {
                 $this->response($check_data, RestController::HTTP_OK);

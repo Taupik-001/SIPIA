@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 
 use chriskacerguis\RestServer\RestController;
 
-class HotelId extends RestController
+class Hotelkk extends RestController
 {
 
     function __construct()
@@ -16,9 +16,9 @@ class HotelId extends RestController
 
     public function index_get($id = 0)
     {
-        $check_data = $this->db->get_where('tb_hotel', ['nama_kabupaten_kota' => $id])->row_array();
+        $check_data = $this->db->get_where('tb_hotel', ['nama_kabupaten_kota' => $id])->result();
 
-        // Jika Mangisikan id Hotel
+        // Jika Mengisikan id Kabupaten/Kota Hotel
         if ($id) {
             if ($check_data) {
                 $this->response($check_data, RestController::HTTP_OK);

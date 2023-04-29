@@ -18,7 +18,7 @@ class Wisata extends RestController
     {
         $check_data = $this->db->get_where('tb_wisata', ['id' => $id])->row_array();
 
-        // Jika Mangisikan id Hotel
+        // Jika Mengisikan id Wisata
         if ($id) {
             if ($check_data) {
                 $this->response($check_data, RestController::HTTP_OK);
