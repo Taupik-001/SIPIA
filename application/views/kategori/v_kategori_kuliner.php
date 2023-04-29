@@ -41,7 +41,7 @@
             <div class="col">
                 <div class="card shadow-sm">
                     <a href="" class="text-thumbail">
-                        <img class="bd-placeholder-img img-fluid card-img-top" width="100%" height="225" src="<?= base_url('assets/images/kuliner/'); ?><?= $w->foto ?>" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="300" src="<?= base_url('assets/images/kuliner/'); ?><?= $w->foto ?>" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <h2 class="title-thumbail"><?= $w->judul_utama ?></h2>
                         </img>
                     </a>
