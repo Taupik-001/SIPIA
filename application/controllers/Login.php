@@ -45,7 +45,7 @@ class Login extends CI_Controller
 		} else {
 			// User doesn't exist, so show an error message
 			echo "Username tidak ditemukan !";
-			redirect('home');
+			redirect('login');
 		}
 	}
 
