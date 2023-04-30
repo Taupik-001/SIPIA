@@ -10,7 +10,7 @@ class Login extends RestController
     public function index_post()
     {
         $email = strtolower(trim($this->post('email')));
-        $password = trim($this->post('password'));
+        $password = strtolower(trim($this->post('password')));
 
         // Check if the username and password are correct
         $result = $this->db->get_where('tb_user', array('email' => $email, 'password' => $password))->row();

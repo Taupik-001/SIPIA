@@ -78,7 +78,7 @@ class Register extends RestController
         $data = array(
             'nama' => ucwords(strtolower(trim($this->post('nama')))),
             'email' => $email,
-            'password' => trim($this->post('password')),
+            'password' => strtolower(trim($this->post('password'))),
             'no_telp' => trim($no_telp),
             'id_level' => '3',
         );
