@@ -18,8 +18,8 @@ class Home extends CI_Controller
         $data['wisata'] = $this->m_wisata->tampil_data()->result();
         $data['hotel'] = $this->m_hotel->tampil_data()->result();
         $data['kuliner'] = $this->m_kuliner->tampil_data()->result();
-
-        $data['title'] = 'SIPIa | Mari Mulai Perjalanan Wisata Anda';
+        $data['page'] = 'home';
+        $data['title'] = 'SIPIA | Mari Mulai Perjalanan Wisata Anda';
         $this->load->view('user/v_header', $data);
         $this->load->view('user/v_navbar', $data);
         $this->load->view('user/v_home', $data);

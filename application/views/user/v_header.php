@@ -7,13 +7,57 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title><?= $title; ?></title>
     <!-- Icon Title Page link -->
-    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/images/icon/Icon.png'); ?>">
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/images/icon/Icon_Green.png'); ?>">
     <!-- CDN CSS Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Icon Font Awesome -->
     <script src="https://kit.fontawesome.com/d67a92e533.js"></script>
-    <!-- Custom Styles for home Page -->
     <style>
+        @font-face {
+            font-family: 'Braah One';
+            src: url('<?php echo base_url("assets/") ?>font/Braah_One/BraahOne-Regular.ttf') format('truetype');
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Custom Styles for home Page -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <style>
+        hr {
+            color: white;
+        }
+
+        .active-tosca {
+            color: white;
+        }
+
+
+        /* Set the body font to Braah One */
+        body {
+            font-family: 'Braah One', sans-serif;
+            padding-top: 73px;
+        }
+.font-braah-one {
+    font-family: 'Braah One', sans-serif;
+}
+        .font-open-sans {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .font-merriweather {
+            font-family: 'Merriweather', serif;
+        }
+
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+        }
+
         @media (100px <=width <=300px) {
             .box {
                 background-color: blue;
@@ -25,6 +69,7 @@
                 width: 100%;
             }
         }
+
         .mybrandapp {
             width: 40%;
         }
