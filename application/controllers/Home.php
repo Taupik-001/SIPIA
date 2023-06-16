@@ -20,13 +20,13 @@ class Home extends CI_Controller
         $data['kuliner'] = $this->m_kuliner->tampil_data()->result();
         $data['page'] = 'home';
         $data['title'] = 'SIPIA | Mari Mulai Perjalanan Wisata Anda';
-        $this->load->view('user/v_header', $data);
-        $this->load->view('user/v_navbar', $data);
-        $this->load->view('user/v_home', $data);
-        $this->load->view('user/v_visi_misi', $data);
-        $this->load->view('user/v_data_artikel', $data);
-        $this->load->view('user/v_artikel', $data);
-        $this->load->view('user/v_pertanyaan', $data);
-        $this->load->view('user/v_footer', $data);
+        $this->load->view('user/v_Header_Home', $data);
+        $this->load->view('user/v_Navigation_Bar_Home', $data);
+        $this->load->view('user/v_Home_Section', $data);
+        $this->load->view('user/v_Featured_Articles', $data);
+        $this->load->view('user/v_Popular_Articles', $data);
+        $this->load->view('user/v_Frequently_Asked_Questions', $data);
+        $this->load->view('user/v_Recommended_Articles', $data);
+        $this->load->view('user/v_Footer_Home', $data);
     }
 }

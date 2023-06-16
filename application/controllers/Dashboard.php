@@ -33,12 +33,6 @@ class Dashboard extends CI_Controller
 		$data["page"] = "Dashboard";
 		$data["pageTre"] = "none";
 		$data['title'] = 'Dashboard | SIPIa - Sistem Informasi Pariwisata Indonesia';
-		$this->load->view('templates/header_admin', $data);
-		$this->load->view('templates/header_main');
-		$this->load->view('templates/sidebar_main', $data);
-		$this->load->view('dashboard/v_dashboard', $data);
-		$this->load->view('templates/footer_copyright');
-		$this->load->view('templates/footer_admin');
 	}
 
 	//Fungsi untuk logout
@@ -48,3 +42,12 @@ class Dashboard extends CI_Controller
 		redirect(base_url('login'));
 	}
 }
+
+
+
+		// $this->load->view('templates/header_admin', $data);
+		// $this->load->view('templates/header_main');
+		// $this->load->view('templates/sidebar_main', $data);
+		// $this->load->view('dashboard/v_dashboard1', $data);
+		// $this->load->view('templates/footer_copyright');
+		// $this->load->view('templates/footer_admin');

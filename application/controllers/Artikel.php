@@ -21,10 +21,10 @@ class Artikel extends CI_Controller
 
         $data['title'] = 'SIPIa | Mari Mulai Perjalanan Wisata Anda';
         
-        $this->load->view('user/v_header', $data);
-        $this->load->view('user/v_navbar');
+        $this->load->view('user/v_Header_Home', $data);
+        // $this->load->view('user/v_Navigation_Bar_Home');
         $this->load->view('user/v_artikel_wisata', $data);
-        $this->load->view('user/v_footer', $data);
+        $this->load->view('user/v_Footer_Home', $data);
     }
     public function hotel($urlhotel)
     {
@@ -33,10 +33,10 @@ class Artikel extends CI_Controller
 
         $data['title'] = 'SIPIa | Mari Mulai Perjalanan hotel Anda';
         
-        $this->load->view('user/v_header', $data);
-        $this->load->view('user/v_navbar');
+        $this->load->view('user/v_Header_Home', $data);
+        // $this->load->view('user/v_Navigation_Bar_Home');
         $this->load->view('user/v_artikel_hotel', $data);
-        $this->load->view('user/v_footer', $data);
+        $this->load->view('user/v_Footer_Home', $data);
     }
     public function kuliner($urlkuliner)
     {
@@ -45,9 +45,9 @@ class Artikel extends CI_Controller
 
         $data['title'] = 'SIPIa | Mari Mulai Perjalanan kuliner Anda';
         
-        $this->load->view('user/v_header', $data);
-        $this->load->view('user/v_navbar');
+        $this->load->view('user/v_Header_Home', $data);
+        // $this->load->view('user/v_Navigation_Bar_Home');
         $this->load->view('user/v_artikel_kuliner', $data);
-        $this->load->view('user/v_footer', $data);
+        $this->load->view('user/v_Footer_Home', $data);
     }
 }
